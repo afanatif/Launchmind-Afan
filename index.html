@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TransPal</title>
+  <style>
+    :root {
+      --primary-color: #6495ED;
+      --secondary-color: #F7F7F7;
+      --text-color: #333;
+      --background-color: #FFFFFF;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    .nav-bar {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      padding: 1em;
+      text-align: center;
+    }
+
+    .nav-bar a {
+      color: var(--background-color);
+      text-decoration: none;
+    }
+
+    .hero-section {
+      background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      padding: 5em;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .features-section {
+      padding: 2em;
+    }
+
+    .features-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    .feature {
+      margin-bottom: 1em;
+    }
+
+    .feature-icon {
+      font-size: 1.5em;
+      margin-right: 0.5em;
+    }
+
+    .who-is-this-for-section {
+      padding: 2em;
+    }
+
+    .who-is-this-for-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    .persona {
+      margin-bottom: 1em;
+    }
+
+    .persona-name {
+      font-weight: bold;
+    }
+
+    .call-to-action-section {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      padding: 2em;
+      text-align: center;
+    }
+
+    .call-to-action-section button {
+      background-color: var(--background-color);
+      border: none;
+      color: var(--primary-color);
+      padding: 1em 2em;
+      cursor: pointer;
+    }
+
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--background-color);
+      padding: 1em;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 2em;
+      }
+
+      .hero-section h1 {
+        font-size: 2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 1em;
+      }
+
+      .hero-section h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <a href="#">TransPal</a>
+  </nav>
+  <section class="hero-section">
+    <h1>Convenience, Safety, and Dignity for the Transgender Community</h1>
+    <p>TransPal connects you with trusted and inclusive food, grocery, and pharmacy delivery services</p>
+  </section>
+  <section class="features-section">
+    <h2>Our Features</h2>
+    <div class="feature">
+      <span class="feature-icon">🍴</span>
+      <strong>Inclusive Restaurant Partnerships</strong>
+      <p>Partner with restaurants that have undergone transgender sensitivity training</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">👤</span>
+      <strong>Personalized Profile and Preferences</strong>
+      <p>Create a personalized profile to ensure a tailored delivery experience</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🚚</span>
+      <strong>Real-time Delivery Tracking and Updates</strong>
+      <p>Get real-time updates on the status of your delivery</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🔒</span>
+      <strong>Secure and Private Payment Options</strong>
+      <p>Enjoy secure and private payment options with industry-standard encryption</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">⭐️</span>
+      <strong>Community Review and Rating System</strong>
+      <p>Leave reviews and ratings to help others find inclusive and respectful delivery services</p>
+    </div>
+  </section>
+  <section class="who-is-this-for-section">
+    <h2>Who is this for?</h2>
+    <div class="persona">
+      <span class="persona-name">Jamie</span>
+      <p>A transgender student looking for safe and respectful food delivery options</p>
+    </div>
+    <div class="persona">
+      <span class="persona-name">Taylor</span>
+      <p>A busy transgender professional seeking convenient and healthy food delivery options</p>
+    </div>
+    <div class="persona">
+      <span class="persona-name">Sam</span>
+      <p>A transgender senior needing reliable and trustworthy delivery services for essential items</p>
+    </div>
+  </section>
+  <section class="call-to-action-section">
+    <button>Join Waitlist</button>
+  </section>
+  <footer class="footer">
+    &copy; 2024 TransPal
+  </footer>
+</body>
+</html>
