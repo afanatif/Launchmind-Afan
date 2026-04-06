@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AffirmRides - Safe & Inclusive Ride-Sharing for the Transgender Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6B46C1; /* A gentle purple */
+            --primary-dark: #5A3AA0;
+            --primary-light: #8E70D9;
+            --accent: #E5A8E1; /* A soft pink/lavender */
+            --background: #F9FAFB; /* Light almost white */
+            --card-background: #FFFFFF;
+            --text-dark: #1A202C; /* Dark charcoal */
+            --text-medium: #4A5568; /* Medium gray */
+            --text-light: #718096; /* Lighter gray */
+            --border-color: #E2E8F0;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-medium);
+            background-color: var(--background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; }
+        h3 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 600; }
+        p { margin-bottom: var(--spacing-sm); }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .button-primary {
+            background-color: var(--primary);
+            color: var(--card-background);
+        }
+
+        .button-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--card-background);
+            padding: var(--spacing-md) 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--card-background);
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .hero-section h1 {
+            color: var(--card-background);
+            margin-bottom: var(--spacing-md);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-section p {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-section .button {
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            padding: var(--spacing-md) var(--spacing-xl);
+            background-color: var(--card-background);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .hero-section .button:hover {
+            background-color: var(--border-color);
+            color: var(--primary-dark);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .feature-card {
+            background-color: var(--card-background);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1; /* Ensure emoji fits */
+        }
+
+        .feature-card h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            flex-grow: 1; /* Ensure descriptions take equal height */
+        }
+
+        /* Personas Section */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .persona-card {
+            background-color: var(--card-background);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            border-left: 5px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .persona-card h3 {
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .persona-card strong {
+            display: block;
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-dark);
+        }
+
+        .persona-card p {
+            color: var(--text-medium);
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: var(--card-background);
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .cta-section h2 {
+            color: var(--card-background);
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            margin-bottom: var(--spacing-xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-section .button {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+        }
+
+        .cta-section .button:hover {
+            background-color: var(--card-background);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: var(--primary-light);
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            .navbar-brand {
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .hero-section {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .personas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card, .persona-card {
+                padding: var(--spacing-md);
+            }
+
+            .feature-icon {
+                font-size: 3rem;
+            }
+
+            .cta-section {
+                padding: var(--spacing-xl) 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.25rem; }
+
+            .hero-section p, .section-header p, .cta-section p {
+                font-size: 1rem;
+            }
+
+            .button {
+                padding: var(--spacing-xs) var(--spacing-md);
+                font-size: 0.9rem;
+            }
+
+            .hero-section .button, .cta-section .button {
+                padding: var(--spacing-sm) var(--spacing-lg);
+            }
+
+            .section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">AffirmRides</a>
+            <!-- No navigation links needed for a simple landing page, just brand -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Your Journey, Affirmed: Safe, Respectful Rides, Designed by and for the Transgender Community.</h1>
+                <p>Experience peace of mind with AffirmRides, where every journey is met with understanding, advanced safety, and drivers committed to your respect and comfort.</p>
+                <a href="#cta" class="button button-primary">Join Our Waitlist</a>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experience Peace of Mind with AffirmRides</h2>
+                    <p>We've built a platform where your safety, identity, and comfort are paramount, ensuring every ride is a positive experience.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon" role="img" aria-label="Transgender Flag Emoji">🏳️‍⚧️</span>
+                        <h3>Inclusive Profile Customization</h3>
+                        <p>Allows riders and drivers to specify their chosen name, gender identity, and preferred pronouns. This information is displayed respectfully to the matched party to facilitate correct address.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon" role="img" aria-label="Locked with Key Emoji">🔒</span>
+                        <h3>Discreet In-App Safety Toolkit</h3>
+                        <p>Includes a 'Discreet SOS' button for silent alerts with live location, a low-key call option to emergency services, and 'Share My Ride' for real-time tracking with selected contacts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon" role="img" aria-label="Handshake Emoji">🤝</span>
+                        <h3>Certified Inclusive Driver Program</h3>
+                        <p>Mandatory comprehensive training for all drivers covering transgender sensitivity, respectful pronoun usage, de-escalation techniques, and legal protections. Drivers receive a 'Trans-Ally Certified' badge.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon" role="img" aria-label="Eyes Emoji">👀</span>
+                        <h3>Pre-Ride Driver Transparency</h3>
+                        <p>Before confirming, riders can view the matched driver's full 'Inclusive Profile,' including chosen name, pronouns, 'Trans-Ally Certified' badge, and 'Respect & Safety' rating.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon" role="img" aria-label="Check Mark Button Emoji">✅</span>
+                        <h3>Respect & Safety Rating and Reporting</h3>
+                        <p>Enables rating on 'Respectful Communication,' 'Sense of Safety,' and 'Adherence to Community Guidelines.' Provides clear reporting for misgendering, discrimination, or harassment with a sensitive support team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="personas" class="section" style="background-color: var(--background);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who is AffirmRides For?</h2>
+                    <p>Designed with care for those who seek understanding and safety in every journey.</p>
+                </div>
+                <div class="personas-grid">
+                    <div class="persona-card">
+                        <h3>Alex Chen</h3>
+                        <p><strong>Non-binary Transgender Rider</strong></p>
+                        <p>Experiences frequent misgendering or outright hostility from drivers on mainstream ride-sharing apps, leading to anxiety, discomfort, and a fear of expressing their authentic self during rides.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>Sarah Williams</h3>
+                        <p><strong>Transgender Woman Rider</strong></p>
+                        <p>Worries about personal safety, especially during late-night rides or in unfamiliar areas, and seeks discreet yet effective safety measures that don't draw attention or require confrontation, fearing outing or harassment.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>David Miller</h3>
+                        <p><strong>Cisgender Ally Driver</strong></p>
+                        <p>Wants to provide a genuinely safe and respectful service for all passengers but lacks specific training or tools to confidently interact with transgender individuals, fearing unintentional offense or mishandling sensitive situations due to lack of awareness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="container">
+                <h2>Ready for a truly inclusive ride?</h2>
+                <p>Join our waitlist today and be among the first to experience AffirmRides – where every journey is safe, respectful, and affirming.</p>
+                <a href="#" class="button">Join Our Waitlist</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 AffirmRides. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
