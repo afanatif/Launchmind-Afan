@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveRide - Safe Rides for Women</title>
+    <style>
+        /* CSS Variables for a clean, empowering color scheme */
+        :root {
+            --primary-color: #7C4DFF; /* Deep Purple */
+            --secondary-color: #4DE6BF; /* Mint Green Accent */
+            --text-dark: #333;
+            --text-light: #F0F0F0;
+            --bg-light: #FFFFFF;
+            --bg-section: #F8F8FC; /* Light off-white for alternating sections */
+            --border-color: #E0E0E0;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-family-sans);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        /* Universal box-sizing for consistent layout */
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Container for content width control */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section styling for consistent spacing and backgrounds */
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--bg-section);
+        }
+
+        /* Header & Navigation Bar */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-light);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        nav a {
+            color: var(--text-light);
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, rgba(124, 77, 255, 0.85) 100%);
+            color: var(--text-light);
+            padding: 120px 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--text-light); /* Override default h1 color */
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            opacity: 0.9;
+        }
+
+        /* Call-to-action Button Style */
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: #3CD0A7; /* Slightly darker mint */
+            transform: translateY(-2px);
+            color: var(--text-dark);
+        }
+
+        /* Section Headings with Underline Effect */
+        .features h2, .personas h2, .cta h2 {
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block; /* Allows width for pseudo-element */
+        }
+        .features h2::after, .personas h2::after, .cta h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+            border-radius: 2px;
+        }
+
+        /* Features Section Grid Layout */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-item .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .feature-item p {
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        /* Personas Section Grid Layout */
+        .personas {
+            background-color: var(--bg-section);
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .persona-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .persona-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .persona-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .persona-card .role {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .persona-card p strong {
+            color: var(--primary-color);
+        }
+
+        /* Call-to-Action Section */
+        .cta {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 100px 20px;
+        }
+
+        .cta h2 {
+            color: var(--text-light); /* Override default h2 color */
+            margin-bottom: 30px;
+        }
+        .cta h2::after {
+             background-color: var(--secondary-color);
+        }
+
+        .cta p {
+            font-size: 1.4em;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            .hero p {
+                font-size: 1.3em;
+            }
+            .features h2, .personas h2, .cta h2 {
+                font-size: 2.2em;
+            }
+            .features-grid, .personas-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.6em;
+            }
+            nav {
+                display: none; /* Hide navigation on smaller screens for simplicity on a landing page */
+            }
+            .hero {
+                padding: 80px 20px;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .features h2, .personas h2, .cta h2 {
+                font-size: 2em;
+                margin-bottom: 40px;
+            }
+            .feature-item, .persona-card {
+                padding: 25px;
+            }
+            .feature-item h3 {
+                font-size: 1.3em;
+            }
+            .persona-card h3 {
+                font-size: 1.4em;
+            }
+            .cta p {
+                font-size: 1.2em;
+                margin-bottom: 40px;
+            }
+            footer {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .features h2, .personas h2, .cta h2 {
+                font-size: 1.8em;
+            }
+            .features-grid, .personas-grid {
+                grid-template-columns: 1fr; /* Single column layout for small screens */
+            }
+            .feature-item h3 {
+                font-size: 1.2em;
+            }
+            .persona-card h3 {
+                font-size: 1.3em;
+            }
+            .cta p {
+                font-size: 1em;
+            }
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">EveRide</a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#for-who">For Who</a>
+                <a href="#waitlist">Join Waitlist</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Your Journey, Our Priority: Safe & Trusted Rides for Women.</h1>
+                <p>EveRide is the taxi app designed by women, for women, ensuring every ride is secure, transparent, and built on trust.</p>
+                <a href="#waitlist" class="btn">Join Our Waitlist</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Empowering Features for Your Peace of Mind</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="icon" aria-label="Shield icon">🛡️</span>
+                        <h3>Rigorous Driver Vetting & Onboarding</h3>
+                        <p>Comprehensive multi-point background checks (criminal record, driving history), identity verification, vehicle safety inspections, and mandatory, recurring safety protocol training specifically for female riders.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-label="Location pin icon">📍</span>
+                        <h3>Real-time Ride Tracking & Trusted Contacts</h3>
+                        <p>Riders can designate up to five 'Trusted Contacts' who automatically receive a link to track their live trip status, estimated arrival time, and critical driver/vehicle details on a map, without needing to download the app.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-label="SOS icon">🆘</span>
+                        <h3>In-App SOS & Safety Toolkit</h3>
+                        <p>An easily accessible, discreet emergency button within the app that, when pressed, silently alerts all Trusted Contacts, simultaneously triggers an immediate call to local emergency services, and initiates a discreet audio recording of the ride.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-label="Woman pilot icon">👩‍✈️</span>
+                        <h3>Enhanced Driver & Vehicle Profiles</h3>
+                        <p>Before and during a ride, riders can view a detailed profile of their assigned driver, including a clear professional photo, accumulated safety badges, vehicle make/model/color/license plate, and granular safety ratings/feedback specifically from other female riders.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-label="Speech bubble icon">💬</span>
+                        <h3>Secure In-App Communication</h3>
+                        <p>A secure, anonymized messaging feature for riders and drivers to communicate only within the app. This prevents the exchange of personal phone numbers, offers pre-defined safe messages for common queries, and all communications are logged for safety review.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="for-who" class="personas">
+            <div class="container">
+                <h2>Who EveRide is For</h2>
+                <div class="personas-grid">
+                    <div class="persona-card">
+                        <h3>Sarah Chen</h3>
+                        <span class="role">Young Professional</span>
+                        <p><strong>Pain Point:</strong> Feels unsafe taking standard ride-shares alone late at night after work events or social gatherings, particularly when drivers lack transparency or behave unprofessionally.</p>
+                        <p><strong>How EveRide Helps:</strong> EveRide provides Sarah with peace of mind through rigorously vetted drivers and the ability for her friends to track her journey, making late-night rides secure and stress-free.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>Maya Singh</h3>
+                        <span class="role">University Student</span>
+                        <p><strong>Pain Point:</strong> Often needs affordable transportation home from campus or friends' places after dark, but worries about driver identity verification and the potential for uncomfortable interactions due to limited personal safety options in standard apps.</p>
+                        <p><strong>How EveRide Helps:</strong> Maya benefits from secure driver profiles and an in-app safety toolkit, ensuring her rides are safe and comfortable, without compromising her budget or personal security.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>Jessica Miller</h3>
+                        <span class="role">Mother</span>
+                        <p><strong>Pain Point:</strong> Needs reliable and safe transportation for herself and occasionally her teenage daughter, concerned about the unpredictability of drivers and the lack of robust emergency protocols in typical ride-sharing services.</p>
+                        <p><strong>How EveRide Helps:</strong> Jessica trusts EveRide's comprehensive safety features and SOS toolkit for herself and her daughter, knowing they are protected by a community-first approach and robust emergency protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="waitlist" class="cta">
+            <div class="container">
+                <h2>Ready for a Safer Ride?</h2>
+                <p>Join our waitlist today and be among the first to experience EveRide – where your safety and trust come first.</p>
+                <a href="#" class="btn">Join Waitlist Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 EveRide. All rights reserved. | Designed for Women, Built on Trust.</p>
+        </div>
+    </footer>
+</body>
+</html>
