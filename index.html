@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golearnix - Your Ultimate Mobile Prep for MBBS Exams</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --primary-dark: #0056b3;
+            --secondary-color: #28a745; /* Green for CTA primary */
+            --accent-color: #ffc107; /* Yellow for CTA highlight */
+            --background-light: #f8f9fa; /* Light grey for sections */
+            --background-dark: #343a40; /* Dark grey for footer */
+            --text-color-dark: #333;
+            --text-color-light: #fff;
+            --border-color: #dee2e6;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            --max-width: 1200px;
+            --spacing-unit: 1rem; /* 16px */
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2); /* 32px */
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            margin-bottom: var(--spacing-unit);
+            line-height: 1.2;
+            color: var(--primary-dark);
+        }
+        h1 { font-size: 2.8rem; } /* 44.8px */
+        h2 { font-size: 2.2rem; } /* 35.2px */
+        h3 { font-size: 1.8rem; } /* 28.8px */
+        p { margin-bottom: var(--spacing-unit); }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); /* 12px 24px */
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem; /* 17.6px */
+            -webkit-appearance: none; /* For iOS Safari */
+            -moz-appearance: none; /* For Firefox */
+            appearance: none; /* Standard */
+        }
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Header / Navbar */
+        .navbar {
+            background-color: var(--text-color-light);
+            padding: var(--spacing-unit) 0; /* Vertical padding; horizontal from container */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 1.8rem; /* 28.8px */
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6a93cb 100%);
+            color: var(--text-color-light);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 6) calc(var(--spacing-unit) * 2); /* 96px 32px */
+        }
+        .hero h1 {
+            color: var(--text-color-light);
+            font-size: 3.5rem; /* 56px */
+            margin-bottom: calc(var(--spacing-unit) * 1); /* 16px */
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero p {
+            font-size: 1.5rem; /* 24px */
+            margin-bottom: calc(var(--spacing-unit) * 2); /* 32px */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        .hero .btn {
+            background-color: var(--secondary-color);
+        }
+        .hero .btn:hover {
+            background-color: #218838; /* Darker green */
+        }
+
+        /* Section common styling */
+        section {
+            padding: calc(var(--spacing-unit) * 5) 0; /* 80px 0 */
+        }
+        section:nth-of-type(even) {
+            background-color: var(--text-color-light); /* White background for alternating sections */
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 4); /* 64px */
+            position: relative;
+            color: var(--primary-dark);
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: calc(var(--spacing-unit) * 0.75) auto 0; /* 12px top margin */
+            border-radius: 2px;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 3); /* 48px */
+            margin-top: calc(var(--spacing-unit) * 2); /* 32px */
+        }
+        .feature-item {
+            background-color: var(--text-color-light);
+            padding: calc(var(--spacing-unit) * 2.5); /* 40px */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .feature-item .icon {
+            font-size: 3.5rem; /* 56px */
+            margin-bottom: var(--spacing-unit); /* 16px */
+            line-height: 1; /* Ensure emoji is vertically centered */
+        }
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: calc(var(--spacing-unit) * 0.75); /* 12px */
+        }
+        .feature-item p {
+            font-size: 0.95rem; /* 15.2px */
+            color: #555;
+            flex-grow: 1; /* Make paragraphs take up available space */
+            margin-bottom: 0;
+        }
+
+        /* Who is this for section */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 3); /* 48px */
+        }
+        .persona-card {
+            background-color: var(--text-color-light);
+            padding: calc(var(--spacing-unit) * 2.5); /* 40px */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .persona-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .persona-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: calc(var(--spacing-unit) * 0.5); /* 8px */
+        }
+        .persona-card .role {
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-unit); /* 16px */
+            display: block;
+            font-weight: 500;
+        }
+        .persona-card p {
+            font-size: 0.95rem; /* 15.2px */
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Call to Action */
+        .cta {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 2); /* 80px 32px */
+        }
+        .cta h2 {
+            color: var(--text-color-light);
+            margin-bottom: calc(var(--spacing-unit) * 2); /* 32px */
+        }
+        .cta h2::after {
+            background-color: var(--text-color-light);
+        }
+        .cta p {
+            font-size: 1.3rem; /* 20.8px */
+            margin-bottom: calc(var(--spacing-unit) * 2.5); /* 40px */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        .cta .btn {
+            background-color: var(--accent-color);
+            color: var(--text-color-dark);
+            padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2.5); /* 16px 40px */
+            font-size: 1.2rem; /* 19.2px */
+        }
+        .cta .btn:hover {
+            background-color: #ffda6a; /* Lighter yellow */
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--background-dark);
+            color: #adb5bd;
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2); /* 48px 32px */
+            font-size: 0.9rem; /* 14.4px */
+        }
+        .footer p {
+            margin-bottom: calc(var(--spacing-unit) * 0.5); /* 8px */
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; } /* 40px */
+            h2 { font-size: 1.9rem; } /* 30.4px */
+            h3 { font-size: 1.6rem; } /* 25.6px */
+            
+            .hero h1 {
+                font-size: 2.8rem; /* 44.8px */
+            }
+            .hero p {
+                font-size: 1.3rem; /* 20.8px */
+            }
+
+            .features-grid,
+            .personas-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .logo {
+                font-size: 1.6rem; /* 25.6px */
+            }
+            .hero h1 {
+                font-size: 2.2rem; /* 35.2px */
+            }
+            .hero p {
+                font-size: 1.1rem; /* 17.6px */
+            }
+            .btn {
+                padding: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 1.2); /* 9.6px 19.2px */
+                font-size: 1rem; /* 16px */
+            }
+            section {
+                padding: calc(var(--spacing-unit) * 4) 0; /* 64px 0 */
+            }
+            section h2 {
+                font-size: 1.8rem; /* 28.8px */
+                margin-bottom: calc(var(--spacing-unit) * 3); /* 48px */
+            }
+            .feature-item, .persona-card {
+                padding: calc(var(--spacing-unit) * 2); /* 32px */
+            }
+            .feature-item .icon {
+                font-size: 3rem; /* 48px */
+            }
+            .cta h2 {
+                font-size: 1.8rem; /* 28.8px */
+            }
+            .cta p {
+                font-size: 1.1rem; /* 17.6px */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: calc(var(--spacing-unit) * 1.5); /* 24px */
+            }
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar .logo {
+                margin-bottom: var(--spacing-unit); /* 16px */
+            }
+            .hero {
+                padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 1.5); /* 64px 24px */
+            }
+            .hero h1 {
+                font-size: 1.8rem; /* 28.8px */
+            }
+            .hero p {
+                font-size: 1rem; /* 16px */
+            }
+            h1 { font-size: 2rem; } /* 32px */
+            h2 { font-size: 1.6rem; } /* 25.6px */
+            h3 { font-size: 1.4rem; } /* 22.4px */
+
+            .features-grid,
+            .personas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Golearnix</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Golearnix: Master MBBS Exams. Your Ultimate Mobile Companion for Success.</h1>
+                <p>Streamline your study with comprehensive question banks, high-yield notes, and personalized progress tracking, saving time and reducing study-related stress.</p>
+                <a href="#cta" class="btn">Join Waitlist Today</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Empower Your Learning with Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="icon" aria-hidden="true">📚</span>
+                        <h3>Subject-wise Question Banks</h3>
+                        <p>Practice with categorized questions, varying difficulty levels, and detailed evidence-based explanations for all MBBS subjects.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-hidden="true">📝</span>
+                        <h3>High-Yield Short Notes Library</h3>
+                        <p>Access a curated collection of concise, high-yield notes with flowcharts and diagrams for quick revision and deep understanding.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-hidden="true">📊</span>
+                        <h3>Personalized Progress Dashboard</h3>
+                        <p>Visualize your performance, track accuracy, identify weak areas, and monitor your study progress with interactive charts and graphs.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-hidden="true">🔖</span>
+                        <h3>Bookmark & Error Review System</h3>
+                        <p>Effortlessly bookmark vital questions/notes and automatically aggregate incorrect answers for focused mastery and periodic re-review.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon" aria-hidden="true">🔍</span>
+                        <h3>Universal Content Search</h3>
+                        <p>Quickly find any question, topic, medical term, or keyword across the entire Golearnix library with powerful search capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="for-you" class="for-you">
+            <div class="container">
+                <h2>Who Is Golearnix For?</h2>
+                <div class="personas-grid">
+                    <div class="persona-card">
+                        <h3>Arjun Sharma</h3>
+                        <span class="role">First-year MBBS student</span>
+                        <p>Feeling overwhelmed by the sheer volume of foundational subjects? Golearnix provides consolidated, high-yield study material and structured practice to build a strong base and ace your internal assessments.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>Priya Singh</h3>
+                        <span class="role">Third-year MBBS student (Clinical posting)</span>
+                        <p>Struggling to find study time amidst demanding clinical rotations? Golearnix offers quick access to concise, relevant information and exam-style questions that seamlessly connect theory to practical clinical application.</p>
+                    </div>
+                    <div class="persona-card">
+                        <h3>Rohan Gupta</h3>
+                        <span class="role">Final-year MBBS student</span>
+                        <p>Preparing for rigorous professional exams and need to consolidate vast knowledge? Golearnix's personalized dashboard helps identify weak areas, while extensive practice with diverse question types ensures you're fully prepared.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your MBBS Prep?</h2>
+                <p>Join the Golearnix waitlist and be among the first to experience a smarter, less stressful way to study for your medical exams.</p>
+                <a href="#" class="btn">Join Waitlist Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Golearnix. All rights reserved.</p>
+            <p>Made with dedication for MBBS students.</p>
+        </div>
+    </footer>
+</body>
+</html>
