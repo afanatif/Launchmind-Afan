@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodWagon - Fast & Local Food Delivery in Pakistan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #E74C3C; /* Reddish */
+            --secondary-color: #F1C40F; /* Yellowish */
+            --text-color: #333;
+            --background-color: #F8F9FA;
+            --light-background: #FFFFFF;
+            --dark-background: #2C3E50; /* Dark blue-grey for footer */
+            --light-text-color: #ECF0F1;
+            --border-color: #DDD;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
+        p { font-size: 1rem; margin-bottom: 1rem; }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #C0392B; /* Darker primary */
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header / Navbar */
+        .navbar {
+            background-color: var(--light-background);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x800/2C3E50/ECF0F1?text=FoodWagon+Hero+Image') no-repeat center center/cover; /* Placeholder for a relevant image */
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 150px 0;
+            display: flex;
+            align-items: center;
+            min-height: 60vh;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--light-text-color);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light-background);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--light-background);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Personas Section */
+        .personas {
+            background-color: var(--background-color);
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .persona-card {
+            background-color: var(--light-background);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .persona-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .persona-icon {
+            font-size: 3.5rem; /* Larger icon */
+            margin-bottom: 20px;
+            line-height: 1; /* Ensure emoji sits correctly */
+        }
+
+        .persona-card h3 {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .persona-card p {
+            font-size: 1rem;
+            color: #666;
+            flex-grow: 1; /* Allow description to take available space */
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Ensure content stacks vertically */
+        }
+
+        .cta-section h2 {
+            color: var(--light-text-color);
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-section .btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-background);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+        .cta-section .btn:hover {
+            background-color: #E6B000; /* Darker secondary */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-background);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
+
+            .section {
+                padding: 60px 0;
+            }
+            .cta-section {
+                padding: 80px 0;
+            }
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            .hero {
+                padding: 100px 0;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+
+            .features-grid, .personas-grid {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+            }
+
+            .feature-item, .persona-card {
+                padding: 25px;
+            }
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            .cta-section .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            .footer {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .section-heading {
+                margin-bottom: 30px;
+            }
+            .feature-icon, .persona-icon {
+                font-size: 2.5rem;
+            }
+            .feature-item h3 {
+                font-size: 1.3rem;
+            }
+            .persona-card h3 {
+                font-size: 1.4rem;
+            }
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">FoodWagon</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>FoodWagon: Your Crave, Delivered. Fast, Fresh & Local in Pakistan.</h1>
+            <p>Connecting hungry customers with their favorite local restaurants through a reliable and user-friendly mobile platform, ensuring fast and convenient food delivery across Pakistan.</p>
+            <a href="#cta" class="btn">Download the App</a>
+        </div>
+    </section>
+
+    <section id="features" class="features section">
+        <div class="container">
+            <h2 class="section-heading">Seamless Food Delivery, Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🔍</span>
+                    <h3>Restaurant & Dish Search with Filters</h3>
+                    <p>Easily find restaurants by name, cuisine, or specific dishes. Filter by dietary needs, price, ratings, and delivery time. Always know operating hours and availability.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure Order Placement & Real-time Tracking</h3>
+                    <p>Add items to your cart, customize orders, and checkout securely with end-to-end encryption. Track your driver on a live map from pickup to delivery with detailed status updates.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💳</span>
+                    <h3>Multi-Modal Payment Integration</h3>
+                    <p>Pay your way! We support Cash on Delivery, major credit/debit cards via secure gateways, and local digital wallets like Easypaisa and JazzCash, all with industry-standard encryption.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🏍️</span>
+                    <h3>Driver App: Order Acceptance & Navigation</h3>
+                    <p>A dedicated app for drivers with instant order notifications, flexible online/offline status, optimized GPS navigation, batched order management, and transparent earnings breakdown.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">👨‍🍳</span>
+                    <h3>Restaurant Partner Portal/App</h3>
+                    <p>Empower your restaurant with easy menu management, real-time order notifications (with auto-print option), status updates, and comprehensive sales & payout reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personas" class="personas section">
+        <div class="container">
+            <h2 class="section-heading">Who Benefits from FoodWagon?</h2>
+            <div class="personas-grid">
+                <div class="persona-card">
+                    <span class="persona-icon">👩‍💼</span>
+                    <h3>For Busy Professionals (Ayesha Khan)</h3>
+                    <p>After a long day, Ayesha wants quick, diverse, and reliable dinner options. FoodWagon offers extensive restaurant choices, transparent pricing, and dependable delivery during peak hours, ensuring her cravings are always met.</p>
+                </div>
+                <div class="persona-card">
+                    <span class="persona-icon">🛵</span>
+                    <h3>For Dedicated Delivery Drivers (Faisal Mahmood)</h3>
+                    <p>Faisal seeks flexible income and consistent orders. FoodWagon provides optimized routing, a steady flow of deliveries, fair compensation, and timely payouts, helping him maximize his earnings and manage his schedule efficiently.</p>
+                </div>
+                <div class="persona-card">
+                    <span class="persona-icon">🍽️</span>
+                    <h3>For Local Restaurant Owners (Mr. Javaid)</h3>
+                    <p>Mr. Javaid wants to expand 'Javaid's Biryani Point' without heavy investment. FoodWagon offers a simple platform to manage orders, update menus, and ensures timely payments with transparent commissions, helping his business thrive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>Ready to Taste the Future of Food Delivery?</h2>
+            <a href="#" class="btn">Join Our Waitlist</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FoodWagon. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
