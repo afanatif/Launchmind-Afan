@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Ride - Safe & Dignified Rides for Pakistan's Transgender Community</title>
+    <style>
+        /* CSS Variables for a clean, culturally aware, non-gender-conforming aesthetic */
+        :root {
+            --primary-color: #5d496e; /* Deep Plum/Dignity */
+            --secondary-color: #8c739e; /* Lighter Lavender/Serenity */
+            --accent-color: #a4e6ba; /* Soft Mint Green/Hope & Safety */
+            --text-color: #333333;
+            --background-color: #fcfcfc; /* Off-white for a warm feel */
+            --light-gray: #eeeeee;
+            --white: #ffffff;
+            --dark-gray: #555555;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.9em;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 550px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before { /* Subtle background pattern for cultural aesthetics */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative; /* Ensure content is above the pseudo-element */
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: var(--white);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #8cd6a5; /* Slightly darker accent */
+            transform: translateY(-2px);
+        }
+
+        /* Sections General Styling */
+        section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 3em;
+            margin-bottom: 70px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background-color: var(--background-color);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 1px solid var(--light-gray);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            line-height: 1; /* Ensure emoji aligns well */
+        }
+
+        .feature-item h3 {
+            font-size: 1.6em;
+            margin-top: 0;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            font-size: 1.05em;
+            color: var(--dark-gray);
+        }
+
+        /* Who is this for Section */
+        .personas {
+            background-color: var(--light-gray);
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .persona-item {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--light-gray);
+        }
+
+        .persona-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .persona-item h3 {
+            font-size: 1.9em;
+            margin-top: 0;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .persona-item .role {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .persona-item p {
+            font-size: 1.05em;
+            color: var(--dark-gray);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 100px 20px;
+        }
+
+        .cta h2 {
+            font-size: 3.2em;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .cta h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .cta p {
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            section h2 {
+                font-size: 2.5em;
+                margin-bottom: 50px;
+            }
+            .features-grid, .personas-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            .feature-item, .persona-item {
+                padding: 30px;
+            }
+            .cta h2 {
+                font-size: 2.8em;
+            }
+            .cta p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.7em;
+            }
+            .hero {
+                padding: 80px 15px;
+                min-height: 450px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            section {
+                padding: 80px 0;
+            }
+            section h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .features-grid, .personas-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .feature-item .icon {
+                font-size: 3em;
+            }
+            .feature-item h3 {
+                font-size: 1.4em;
+            }
+            .persona-item h3 {
+                font-size: 1.7em;
+            }
+            .persona-item .role {
+                font-size: 1.1em;
+            }
+            .btn-primary {
+                padding: 14px 30px;
+                font-size: 1.1em;
+            }
+            .cta h2 {
+                font-size: 2.4em;
+            }
+            .cta p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                justify-content: center;
+            }
+            .navbar-brand {
+                font-size: 1.5em;
+            }
+            .hero {
+                padding: 60px 10px;
+                min-height: 380px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            section h2::after {
+                width: 60px;
+                height: 3px;
+                bottom: -10px;
+            }
+            .feature-item, .persona-item {
+                padding: 25px;
+            }
+            .feature-item .icon {
+                font-size: 2.8em;
+            }
+            .feature-item h3 {
+                font-size: 1.2em;
+            }
+            .persona-item h3 {
+                font-size: 1.5em;
+            }
+            .persona-item .role {
+                font-size: 1em;
+            }
+            .btn-primary {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .cta h2 {
+                font-size: 2em;
+            }
+            .cta p {
+                font-size: 0.95em;
+                margin-bottom: 40px;
+            }
+            .footer {
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">Aman Ride</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Aman Ride: Safe, Respected, and Dignified Journeys for Pakistan's Transgender Community.</h1>
+            <p>Experience transportation designed with your safety, privacy, and cultural respect in mind. Thoroughly vetted drivers, secure matching, and dedicated support for every ride.</p>
+            <a href="#cta-section" class="btn-primary">Join Our Waitlist Today</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Our Commitment to Your Safety & Well-being</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon" role="img" aria-label="Shield icon">🛡️</span>
+                    <h3>Secure Matching & Vetted Drivers</h3>
+                    <p>An intelligent algorithm pairs you with drivers based on proximity, availability, and a preference for zero reported incidents. All drivers undergo rigorous identity verification, background checks, and mandatory inclusivity training, ensuring a 'Verified Safe' experience.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon" role="img" aria-label="Emergency siren icon">🚨</span>
+                    <h3>In-App Emergency SOS & Support</h3>
+                    <p>A persistent, customizable SOS button activates with a 3-second press-and-hold, instantly alerting emergency contacts, our 24/7 support team, and local transgender community hotlines with your ride details and GPS location.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon" role="img" aria-label="Speech bubble icon">💬</span>
+                    <h3>Anonymous & Detailed Feedback System</h3>
+                    <p>Provide anonymous, yet traceable, detailed feedback after every ride. Report issues like misgendering or inappropriate conduct with specific categories, free-text, and optional media, with full transparency on investigation status and resolution.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon" role="img" aria-label="Lock icon">🔒</span>
+                    <h3>Customizable Privacy & Identity Settings</h3>
+                    <p>Control how your preferred name, pronouns, and profile picture are displayed. Utilize private instructions for discreet pick-up/drop-off, and benefit from initial location blurring for enhanced privacy before your driver accepts.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon" role="img" aria-label="Art palette icon">🎨</span>
+                    <h3>Culturally Aware Communication & Interface</h3>
+                    <p>Experience an app designed with culturally appropriate aesthetics, inclusive imagery, and multi-language support including Urdu, Punjabi, Sindhi, and Pashto. Access respectful quick-reply templates and an in-app glossary for respectful communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who is this for Section -->
+    <section class="personas">
+        <div class="container">
+            <h2>Who is Aman Ride For?</h2>
+            <div class="personas-grid">
+                <div class="persona-item">
+                    <h3>Alishba</h3>
+                    <p class="role">Transgender Rider</p>
+                    <p>Escape daily discrimination and anxiety with a service designed for your safety and comfort. Travel freely, knowing your journey is protected and respected.</p>
+                </div>
+                <div class="persona-item">
+                    <h3>Riaz</h3>
+                    <p class="role">Transgender Driver</p>
+                    <p>Secure dignified employment and earn respectfully without fear of prejudice. Aman Ride offers a safe platform where your identity is valued and protected, allowing you to thrive.</p>
+                </div>
+                <div class="persona-item">
+                    <h3>Dr. Sarah Khan</h3>
+                    <p class="role">Transgender Rights Activist / Community Leader</p>
+                    <p>Empower your advocacy with actionable data and a platform that prioritizes community well-being. Gain insights into safety and experience, helping you identify systemic issues and drive positive change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta-section">
+        <div class="container">
+            <h2>Be Among the First to Experience Aman Ride</h2>
+            <p>Join our waitlist today to receive exclusive updates, early access, and contribute to building a safer transportation network for the transgender community in Pakistan.</p>
+            <button class="btn-primary">Join Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Aman Ride. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
