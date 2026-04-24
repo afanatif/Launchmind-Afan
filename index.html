@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeCooked</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        nav {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            padding: 5em;
+            text-align: center;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2em;
+        }
+        .feature {
+            margin: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: calc(33.33% - 2em);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .feature h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .who-is-this-for {
+            padding: 2em;
+            text-align: center;
+        }
+        .call-to-action {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .call-to-action button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+        @media only screen and (max-width: 768px) {
+            .feature {
+                width: calc(50% - 2em);
+            }
+        }
+        @media only screen and (max-width: 480px) {
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">HomeCooked</a>
+    </nav>
+    <section class="hero">
+        <h1>Get healthy, homemade meals delivered right to your doorstep!</h1>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <h2>Local Cook Profile 🍴</h2>
+            <p>View local cook profiles, menus, reviews, and ratings, with filters for dietary preferences, distance, and rating.</p>
+        </div>
+        <div class="feature">
+            <h2>Order Management System 📦</h2>
+            <p>Manage orders, payments, and delivery logistics, with integration with third-party delivery services and real-time tracking.</p>
+        </div>
+        <div class="feature">
+            <h2>Menu Customization 🥗</h2>
+            <p>Customize meal orders based on dietary preferences, with options for vegan, gluten-free, dairy-free, and low-carb meals.</p>
+        </div>
+        <div class="feature">
+            <h2>Real-time Tracking 📍</h2>
+            <p>Track the status of orders in real-time, from preparation to delivery, with integration with third-party delivery services and real-time updates.</p>
+        </div>
+        <div class="feature">
+            <h2>Review and Rating System 📊</h2>
+            <p>Collect reviews and ratings from customers and display them on local cook profiles, with verification process through email verification and review moderation.</p>
+        </div>
+    </section>
+    <section class="who-is-this-for">
+        <h2>Who is this for?</h2>
+        <p>HomeCooked is perfect for busy housewives like Sarah, Emily, and Jen, who value healthy and homemade meals for their families, but struggle to find the time to cook.</p>
+    </section>
+    <section class="call-to-action">
+        <button>Join Waitlist</button>
+    </section>
+    <footer>
+        <p>&copy; 2023 HomeCooked</p>
+    </footer>
+</body>
+</html>
