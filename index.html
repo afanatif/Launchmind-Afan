@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusive Cricket</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .nav-bar {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .hero-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 5em;
+            text-align: center;
+        }
+        .features-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2em;
+        }
+        .feature {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 1em;
+            padding: 1em;
+            width: calc(33.33% - 2em);
+        }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+        .who-is-this-for-section {
+            padding: 2em;
+        }
+        .call-to-action-section {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 2em;
+            text-align: center;
+        }
+        .call-to-action-section button {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            padding: 1em 2em;
+        }
+        .footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .features-section {
+                flex-direction: column;
+            }
+            .feature {
+                width: 100%;
+                margin: 1em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="#">Inclusive Cricket</a>
+    </nav>
+    <section class="hero-section">
+        <h1>Empowering Inclusive Cricket Participation for All</h1>
+        <p>Specialized cricket kits tailored to the unique physical and cognitive needs of differently-abled students</p>
+    </section>
+    <section class="features-section">
+        <div class="feature">
+            <span class="feature-icon">🏏</span>
+            <h2>Adaptive Bat System</h2>
+            <p>A modular cricket bat system featuring adjustable shaft lengths, varied grip diameters, and lightweight composite materials</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🎾</span>
+            <h2>Multi-Sensory Cricket Ball</h2>
+            <p>Cricket balls available in various weights and sizes, incorporating internal bells or rattles for auditory tracking and high-contrast patterns for visual tracking</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🏆</span>
+            <h2>Stabilized & Adjustable Wicket Set</h2>
+            <p>Wickets with wider, weighted, and anti-slip bases for enhanced stability, featuring adjustable height options and larger, high-contrast bails/stumps</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🛡️</span>
+            <h2>Ergonomic & Accessible Protective Gear</h2>
+            <p>Lightweight, easy-donning protective equipment designed with magnetic fasteners, large Velcro straps, or quick-release buckles for ease of use</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">👍</span>
+            <h2>Assisted Fielding & Ball Retrieval Aids</h2>
+            <p>Long-handled, lightweight ball retrieval scoops or nets to assist students with mobility impairments or difficulty bending</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">📚</span>
+            <h2>Simple & Intuitive Instructions</h2>
+            <p>Clear, easy-to-follow instructions and user guides for equipment use and cricket rules, designed to support students with intellectual disabilities and learning needs</p>
+        </div>
+    </section>
+    <section class="who-is-this-for-section">
+        <h2>Who is this for?</h2>
+        <p>Inclusive Cricket is designed for students with diverse needs, including those with intellectual disabilities, physical mobility issues, visual impairments, and other challenges</p>
+        <p>Our equipment and resources cater to the unique requirements of each student, ensuring equal opportunities for participation and enjoyment of the sport</p>
+    </section>
+    <section class="call-to-action-section">
+        <h2>Join the Movement</h2>
+        <p>Be part of the inclusive cricket revolution and help create a more accessible and supportive environment for all players</p>
+        <button>Join Waitlist</button>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2023 Inclusive Cricket</p>
+    </footer>
+</body>
+</html>
