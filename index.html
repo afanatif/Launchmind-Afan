@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Bites</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f1c40f;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .nav-bar {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .hero-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 5em;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 36px;
+            margin-bottom: 1em;
+        }
+        .features-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2em;
+        }
+        .feature {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 1em;
+            padding: 2em;
+            width: calc(33.33% - 2em);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feature h2 {
+            font-size: 18px;
+            margin-bottom: 1em;
+        }
+        .feature p {
+            font-size: 14px;
+            margin-bottom: 1em;
+        }
+        .who-is-this-for-section {
+            padding: 2em;
+            text-align: center;
+        }
+        .who-is-this-for-section h2 {
+            font-size: 24px;
+            margin-bottom: 1em;
+        }
+        .call-to-action-section {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 2em;
+            text-align: center;
+        }
+        .call-to-action-section button {
+            background-color: var(--primary-color);
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 1em 2em;
+        }
+        .footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+        @media only screen and (max-width: 768px) {
+            .features-section {
+                flex-direction: column;
+            }
+            .feature {
+                width: 100%;
+                margin: 1em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="#">Healthy Bites</a>
+    </nav>
+    <section class="hero-section">
+        <h1>Get healthy and delicious meals delivered to your doorstep with ease and convenience</h1>
+    </section>
+    <section class="features-section">
+        <div class="feature">
+            <h2>Restaurant and Home Chef Partnerships 🍴</h2>
+            <p>Integrate with local restaurants and home chefs to access their menus, pricing, and availability</p>
+        </div>
+        <div class="feature">
+            <h2>Meal Planning and Scheduling 📅</h2>
+            <p>Plan and schedule meals up to 7 days in advance with the option to customize meal plans based on dietary restrictions and preferences</p>
+        </div>
+        <div class="feature">
+            <h2>Dietary Restriction Filtering 🥗</h2>
+            <p>Filter meal options based on common dietary restrictions and preferences</p>
+        </div>
+        <div class="feature">
+            <h2>Real-time Order Tracking 🚚</h2>
+            <p>Get real-time updates on the status of your orders</p>
+        </div>
+        <div class="feature">
+            <h2>Rating and Review System 🤝</h2>
+            <p>Rate and review restaurants, home chefs, and meals</p>
+        </div>
+        <div class="feature">
+            <h2>Payment Processing 📈</h2>
+            <p>Process payments securely and efficiently with options for credit card, PayPal, and Apple Pay</p>
+        </div>
+        <div class="feature">
+            <h2>Order Management 📦</h2>
+            <p>Manage orders from creation to delivery</p>
+        </div>
+        <div class="feature">
+            <h2>Customer Support 🤝</h2>
+            <p>Get customer support through email, phone, and in-app messaging</p>
+        </div>
+    </section>
+    <section class="who-is-this-for-section">
+        <h2>Who is this for?</h2>
+        <p>This platform is designed for busy housewives like Sarah, Emily, and Rachel who want to provide healthy and delicious meals for their families with ease and convenience</p>
+    </section>
+    <section class="call-to-action-section">
+        <button>Join Waitlist</button>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 Healthy Bites</p>
+    </footer>
+</body>
+</html>
